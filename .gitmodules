@@ -4,6 +4,6 @@
 [submodule "user"]
 	path = user
 	url = https://github.com/heavensward-argentlux/mongodb-service-template.git
-[submodule "frontend-service-template"]
-	path = frontend-service-template
+[submodule "frontend"]
+	path = frontend
 	url = https://github.com/heavensward-argentlux/frontend-service-template.git
