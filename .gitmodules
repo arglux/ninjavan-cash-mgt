@@ -7,6 +7,3 @@
 [submodule "frontend-service-template"]
 	path = frontend-service-template
 	url = https://github.com/heavensward-argentlux/frontend-service-template.git
-[submodule "frontend"]
-	path = frontend
-	url = https://github.com/heavensward-argentlux/frontend-service-template.git
