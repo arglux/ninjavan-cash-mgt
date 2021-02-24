@@ -1,5 +1,5 @@
 dispatch:
-  - url: '*/receipt'
+  - url: '*/transaction'
     module: receipt
   - url: '*/user'
     module: user
