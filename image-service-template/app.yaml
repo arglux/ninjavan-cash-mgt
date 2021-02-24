@@ -1,0 +1,14 @@
+runtime: nodejs
+env: flex
+service: transaction
+env_variables:
+  DATABASE_URL: mongodb+srv://shinobis:qFFR2K3F83KHqSG2@cluster0.jgt9d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+  PROJECT_ID: ninjavan-cash-mgt
+  BUCKET_NAME: ninjavan-cash-mgt.appspot.com
+
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10

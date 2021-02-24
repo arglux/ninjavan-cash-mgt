@@ -1,0 +1,33 @@
+{
+  "name": "image-service-template",
+  "version": "1.0.0",
+  "description": "RESTful image storage service API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=10.15.3",
+    "npm": ">=6.14.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heavensward-argentlux/image-service-template.git"
+  },
+  "author": "Calvin Yusnoveri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heavensward-argentlux/image-service-template/issues"
+  },
+  "homepage": "https://github.com/heavensward-argentlux/image-service-template#readme",
+  "dependencies": {
+    "@google-cloud/storage": "^5.7.4",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "formidable": "^1.2.2",
+    "mongoose": "^5.11.15",
+    "nodemon": "^2.0.7"
+  }
+}
