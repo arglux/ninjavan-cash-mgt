@@ -1,6 +1,3 @@
-[submodule "receipt"]
-	path = receipt
-	url = https://github.com/heavensward-argentlux/image-service-template.git
 [submodule "user"]
 	path = user
 	url = https://github.com/heavensward-argentlux/mongodb-service-template.git
