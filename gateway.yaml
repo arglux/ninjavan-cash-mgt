@@ -8,6 +8,11 @@ schemes:
 - https
 produces:
 - application/json
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"
 
 paths:
   /transaction:
@@ -16,6 +21,8 @@ paths:
       operationId: getTransactions
       x-google-backend:
         address: https://transaction-6l56qfm2ha-as.a.run.app/transaction
+      security:
+        - api_key: []
       responses:
         '200':
           description: Successfully retrieve list of all transactions
@@ -27,20 +34,10 @@ paths:
       operationId: getUsers
       x-google-backend:
         address: https://user-6l56qfm2ha-as.a.run.app/user
+      security:
+        - api_key: []
       responses:
         '200':
           description: Successfully retrieve list of all users
-          schema:
-            type: string
-
-  /:
-    get:
-      summary: Get home page
-      operationId: getHome
-      x-google-backend:
-        address: https://frontend-6l56qfm2ha-as.a.run.app
-      responses:
-        '200':
-          description: Successfully home page
           schema:
             type: string
