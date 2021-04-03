@@ -29,9 +29,11 @@ paths:
           description: Successfully retrieve list of all transactions
           schema:
             type: string
+      tags:
+      - ninjavan-transaction-service
 
     post:
-      summary: Post a transaction form
+      summary: Create a new transaction
       operationId: postTransaction
       x-google-backend:
         address: https://transaction-6l56qfm2ha-as.a.run.app
@@ -43,84 +45,84 @@ paths:
           name: amount
           type: string
           required: true
-          description: amount reflected in transaction
+          description: Amount reflected in transaction
         - in: formData
           name: username
           type: string
           required: true
-          description: owner of transaction.
+          description: Owner of transaction.
         - in: formData
           name: currency
           type: string
           required: true
-          description: currency of transaction
+          description: Currency of transaction
         - in: formData
           name: expCategory
           type: string
           required: true
-          description: expense category of transaction
+          description: Expense category of transaction
         - in: formData
           name: claimType
           type: string
           required: true
-          description: type of transaction
+          description: Type of transaction
         - in: formData
           name: officeId
           type: string
           required: true
-          description: office id of transaction
+          description: Office id of transaction
         - in: formData
           name: submitterId
           type: string
           required: true
-          description: transaction submitter's id
+          description: Transaction submitter's id
         - in: formData
           name: receiptNumber
           type: string
           required: true
-          description: receipt number on the transaction
+          description: Receipt number on the transaction
         - in: formData
           name: vendorNumber
           type: string
           required: true
-          description: vendor number on the transaction
+          description: Vendor number on the transaction
         - in: formData
           name: receiptDate
           type: string
           required: true
-          description: date on the transaction
+          description: Date on the transaction
         - in: formData
           name: description
           type: string
-          description: decription about the transaction
+          description: Decription about the transaction
         - in: formData
           name: status
           type: string
           required: true
-          description: status of the transaction
+          description: Status of the transaction
         - in: formData
           name: history
           type: string
           required: true
-          description: history of the transaction
+          description: History of the transaction
         - in: formData
           name: claimantName
           type: string
           required: true
-          description: name of claimant for the transaction
+          description: Name of claimant for the transaction
         - in: formData
           name: vehicleNumber
           type: string
-          description: vehicle number of claimant
+          description: Vehicle number of claimant
         - in: formData
           name: receivingOffice
           type: string
-          description: office receiving this transaction claim
+          description: Office receiving this transaction claim
         - in: formData
           name: cashStatus
           type: string
           required: true
-          description: cash status of the transaction
+          description: Cash status of the transaction
       security:
         - api_key: []
       responses:
@@ -128,6 +130,8 @@ paths:
           description: Successfully created a transaction
           schema:
             type: string
+      tags:
+      - ninjavan-transaction-service
 
   /transaction/{username}/{id}:
     get:
@@ -137,16 +141,16 @@ paths:
         address: https://transaction-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
       parameters:
-      - name: username
-        in: path
-        description: Username who owns this transaction
-        required: true
-        type: string
-      - name: id
-        in: path
-        required: true
-        description: id of the transaction
-        type: string
+        - name: username
+          in: path
+          description: Username who owns this transaction
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          description: id of the transaction
+          type: string
       security:
         - api_key: []
       responses:
@@ -154,6 +158,8 @@ paths:
           description: Successfully retrieve a transaction belonging to this user by id
           schema:
             type: string
+      tags:
+      - ninjavan-transaction-service
 
   /transaction/{username}:
     get:
@@ -163,11 +169,11 @@ paths:
         address: https://transaction-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
       parameters:
-      - name: username
-        in: path
-        description: Username who owns this transaction
-        required: true
-        type: string
+        - name: username
+          in: path
+          description: Username who owns this transaction
+          required: true
+          type: string
       security:
         - api_key: []
       responses:
@@ -175,6 +181,8 @@ paths:
           description: Successfully retrieve list of transactions belonging to this user
           schema:
             type: string
+      tags:
+      - ninjavan-transaction-service
 
   /user:
     get:
@@ -190,6 +198,82 @@ paths:
           description: Successfully retrieve list of all users
           schema:
             type: string
+      tags:
+      - ninjavan-user-service
+
+    post:
+      summary: Create a new user
+      operationId: postUser
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: formData
+          name: username
+          type: string
+          required: true
+          description: Username of the user
+        - in: formData
+          name: firstName
+          type: string
+          required: true
+          description: First name of the user
+        - in: formData
+          name: lastName
+          type: string
+          required: true
+          description: Last name of the user
+        - in: formData
+          name: identificationNumber
+          type: string
+          required: true
+          description: Identification number of the user
+        - in: formData
+          name: phoneNumer
+          type: string
+          required: true
+          description: Phone number of the user
+        - in: formData
+          name: email
+          type: string
+          required: true
+          description: Email of the user
+        - in: formData
+          name: officeId
+          type: string
+          required: true
+          description: Default office to which user is attached to
+        - in: formData
+          name: permissions
+          type: string
+          required: true
+          description: Permissions the user is granted
+        - in: formData
+          name: claimType
+          type: string
+          required: true
+          description: Default claim type the user usually claims
+        - in: formData
+          name: language
+          type: string
+          required: true
+          description: Preferred language of the user
+        - in: formData
+          name: history
+          type: string
+          required: true
+          description: History of user actions
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created a user
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
 
   /user/{username}:
     get:
@@ -199,11 +283,11 @@ paths:
         address: https://user-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
       parameters:
-      - name: username
-        in: path
-        description: Username of the user
-        required: true
-        type: string
+        - name: username
+          in: path
+          description: Username of the user
+          required: true
+          type: string
       security:
         - api_key: []
       responses:
@@ -211,6 +295,8 @@ paths:
           description: Successfully retrieve the user with this username
           schema:
             type: string
+      tags:
+      - ninjavan-user-service
 
   /office:
     get:
@@ -220,18 +306,18 @@ paths:
         address: https://office-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
       parameters:
-      - name: country
-        in: query
-        description: Filter for country of the office
-        type: string
-      - name: type
-        in: query
-        description: Filter for type of the office
-        type: string
-      - name: businessUnit
-        in: query
-        description: Filter for business unit of the office
-        type: string
+        - name: country
+          in: query
+          description: Filter for country of the office
+          type: string
+        - name: type
+          in: query
+          description: Filter for type of the office
+          type: string
+        - name: businessUnit
+          in: query
+          description: Filter for business unit of the office
+          type: string
       security:
         - api_key: []
       responses:
@@ -239,6 +325,80 @@ paths:
           description: Successfully retrieve list of all offices
           schema:
             type: string
+      tags:
+      - ninjavan-office-service
+
+    post:
+      summary: Create a new office
+      operationId: postOffice
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: formData
+          name: officeName
+          type: string
+          required: true
+          description: Office name
+        - in: formData
+          name: country
+          type: string
+          required: true
+          description: Country in which office is located
+        - in: formData
+          name: businessUnit
+          type: string
+          required: true
+          description: Business unit of the office
+        - in: formData
+          name: type
+          type: string
+          required: true
+          description: Type of office e.g. Regional
+        - in: formData
+          name: policies
+          type: string
+          required: true
+          description: Policies attached to this office
+        - in: formData
+          name: permissions
+          type: string
+          required: true
+          description: Permissions attached to this office
+        - in: formData
+          name: cashOnHand
+          type: string
+          required: true
+          description: Cash-on-hand value for the office
+        - in: formData
+          name: recognisedBalance
+          type: string
+          required: true
+          description: Recognised balance for the office
+        - in: formData
+          name: currency
+          type: string
+          required: true
+          description: Currency used in the office
+        - in: formData
+          name: children
+          type: string
+          description: Children offices
+        - in: formData
+          name: parent
+          type: string
+          description: Parent office
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created an office
+          schema:
+            type: string
+      tags:
+      - ninjavan-office-service
 
   /office/{id}:
     get:
@@ -248,11 +408,11 @@ paths:
         address: https://office-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
       parameters:
-      - name: id
-        in: path
-        description: Id of the office
-        required: true
-        type: string
+        - name: id
+          in: path
+          description: Id of the office
+          required: true
+          type: string
       security:
         - api_key: []
       responses:
@@ -260,3 +420,5 @@ paths:
           description: Successfully retrieve the office with this id
           schema:
             type: string
+      tags:
+      - ninjavan-office-service
