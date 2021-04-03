@@ -161,6 +161,150 @@ paths:
       tags:
       - ninjavan-transaction-service
 
+    patch:
+      summary: Update status of existing transaction
+      operationId: patchTransactionStatus
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: path
+          name: username
+          type: string
+          required: true
+          description: Username of the owner of transaction to be updated
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: Id of the transaction to be updated
+        - in: formData
+          name: status
+          type: string
+          required: true
+          description: Status of the transaction (e.g. approved)
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated status of existing transaction
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    put:
+      summary: Update an existing transaction
+      operationId: putTransaction
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: path
+          name: username
+          type: string
+          required: true
+          description: Username of the owner of transaction to be updated
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: Id of the transaction to be updated
+        - in: formData
+          name: amount
+          type: string
+          required: true
+          description: Amount reflected in transaction
+        - in: formData
+          name: username
+          type: string
+          required: true
+          description: Owner of transaction.
+        - in: formData
+          name: currency
+          type: string
+          required: true
+          description: Currency of transaction
+        - in: formData
+          name: expCategory
+          type: string
+          required: true
+          description: Expense category of transaction
+        - in: formData
+          name: claimType
+          type: string
+          required: true
+          description: Type of transaction
+        - in: formData
+          name: officeId
+          type: string
+          required: true
+          description: Office id of transaction
+        - in: formData
+          name: submitterId
+          type: string
+          required: true
+          description: Transaction submitter's id
+        - in: formData
+          name: receiptNumber
+          type: string
+          required: true
+          description: Receipt number on the transaction
+        - in: formData
+          name: vendorNumber
+          type: string
+          required: true
+          description: Vendor number on the transaction
+        - in: formData
+          name: receiptDate
+          type: string
+          required: true
+          description: Date on the transaction
+        - in: formData
+          name: description
+          type: string
+          description: Decription about the transaction
+        - in: formData
+          name: status
+          type: string
+          description: Status of the transaction
+        - in: formData
+          name: history
+          type: string
+          required: true
+          description: History of the transaction
+        - in: formData
+          name: claimantName
+          type: string
+          required: true
+          description: Name of claimant for the transaction
+        - in: formData
+          name: vehicleNumber
+          type: string
+          description: Vehicle number of claimant
+        - in: formData
+          name: receivingOffice
+          type: string
+          description: Office receiving this transaction claim
+        - in: formData
+          name: cashStatus
+          type: string
+          required: true
+          description: Cash status of the transaction
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated a transaction
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
   /transaction/{username}:
     get:
       summary: Get list of transactions belonging to this user
@@ -298,6 +442,80 @@ paths:
       tags:
       - ninjavan-user-service
 
+    patch:
+      summary: Update an existing user's particular details
+      operationId: putUser
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: username
+          type: string
+          required: true
+          description: Usernname of the user to be updated
+        - in: formData
+          name: username
+          type: string
+          required: true
+          description: Username of the user (could be new)
+        - in: formData
+          name: firstName
+          type: string
+          required: true
+          description: First name of the user
+        - in: formData
+          name: lastName
+          type: string
+          required: true
+          description: Last name of the user
+        - in: formData
+          name: identificationNumber
+          type: string
+          required: true
+          description: Identification number of the user
+        - in: formData
+          name: phoneNumer
+          type: string
+          required: true
+          description: Phone number of the user
+        - in: formData
+          name: email
+          type: string
+          required: true
+          description: Email of the user
+        - in: formData
+          name: officeId
+          type: string
+          required: true
+          description: Default office to which user is attached to
+        - in: formData
+          name: claimType
+          type: string
+          required: true
+          description: Default claim type the user usually claims
+        - in: formData
+          name: language
+          type: string
+          required: true
+          description: Preferred language of the user
+        - in: formData
+          name: history
+          type: string
+          required: true
+          description: History of user actions
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created a user
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
   /office:
     get:
       summary: Get list of all offices
@@ -418,6 +636,60 @@ paths:
       responses:
         '200':
           description: Successfully retrieve the office with this id
+          schema:
+            type: string
+      tags:
+      - ninjavan-office-service
+
+    patch:
+      summary: Update an existing office's information
+      operationId: putOffice
+      x-google-backend:
+        address: https://office-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: Id of office to be updated
+        - in: formData
+          name: officeName
+          type: string
+          required: true
+          description: Office name
+        - in: formData
+          name: country
+          type: string
+          required: true
+          description: Country in which office is located
+        - in: formData
+          name: businessUnit
+          type: string
+          required: true
+          description: Business unit of the office
+        - in: formData
+          name: type
+          type: string
+          required: true
+          description: Type of office e.g. Regional
+        - in: formData
+          name: cashOnHand
+          type: string
+          required: true
+          description: Cash-on-hand value for the office
+        - in: formData
+          name: currency
+          type: string
+          required: true
+          description: Currency used in the office
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated an existing office
           schema:
             type: string
       tags:
