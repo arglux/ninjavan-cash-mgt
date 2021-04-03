@@ -205,7 +205,7 @@ paths:
       summary: Create a new user
       operationId: postUser
       x-google-backend:
-        address: https://transaction-6l56qfm2ha-as.a.run.app
+        address: https://user-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
       consumes:
         - application/x-www-form-urlencoded
@@ -332,7 +332,7 @@ paths:
       summary: Create a new office
       operationId: postOffice
       x-google-backend:
-        address: https://transaction-6l56qfm2ha-as.a.run.app
+        address: https://office-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
       consumes:
         - application/x-www-form-urlencoded
