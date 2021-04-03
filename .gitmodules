@@ -7,3 +7,6 @@
 [submodule "transaction"]
 	path = transaction
 	url = https://github.com/heavensward-argentlux/image-service-template.git
+[submodule "office"]
+	path = office
+	url = https://github.com/arglux/ninjavan-office-service.git
