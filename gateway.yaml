@@ -30,6 +30,105 @@ paths:
           schema:
             type: string
 
+    post:
+      summary: Post a transaction form
+      operationId: postTransaction
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: formData
+          name: amount
+          type: string
+          required: true
+          description: amount reflected in transaction
+        - in: formData
+          name: username
+          type: string
+          required: true
+          description: owner of transaction.
+        - in: formData
+          name: currency
+          type: string
+          required: true
+          description: currency of transaction
+        - in: formData
+          name: expCategory
+          type: string
+          required: true
+          description: expense category of transaction
+        - in: formData
+          name: claimType
+          type: string
+          required: true
+          description: type of transaction
+        - in: formData
+          name: officeId
+          type: string
+          required: true
+          description: office id of transaction
+        - in: formData
+          name: submitterId
+          type: string
+          required: true
+          description: transaction submitter's id
+        - in: formData
+          name: receiptNumber
+          type: string
+          required: true
+          description: receipt number on the transaction
+        - in: formData
+          name: vendorNumber
+          type: string
+          required: true
+          description: vendor number on the transaction
+        - in: formData
+          name: receiptDate
+          type: string
+          required: true
+          description: date on the transaction
+        - in: formData
+          name: description
+          type: string
+          description: decription about the transaction
+        - in: formData
+          name: status
+          type: string
+          required: true
+          description: status of the transaction
+        - in: formData
+          name: history
+          type: string
+          required: true
+          description: history of the transaction
+        - in: formData
+          name: claimantName
+          type: string
+          required: true
+          description: name of claimant for the transaction
+        - in: formData
+          name: vehicleNumber
+          type: string
+          description: vehicle number of claimant
+        - in: formData
+          name: receivingOffice
+          type: string
+          description: office receiving this transaction claim
+        - in: formData
+          name: cashStatus
+          type: string
+          required: true
+          description: cash status of the transaction
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created a transaction
+          schema:
+            type: string
+
   /transaction/{username}/{id}:
     get:
       summary: Get a transaction by its id
