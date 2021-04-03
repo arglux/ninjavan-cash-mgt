@@ -300,6 +300,33 @@ paths:
       tags:
       - ninjavan-transaction-service
 
+    delete:
+      summary: Delete a transaction by id
+      operationId: deleteTransaction
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: username
+          type: string
+          required: true
+          description: Username of the owner of transaction to be updated
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: Id of the transaction to be updated
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted a transaction with given id
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
   /transaction/{username}:
     get:
       summary: Get list of transactions belonging to this user
@@ -437,7 +464,7 @@ paths:
       tags:
       - ninjavan-user-service
 
-    patch: # problematic
+    patch:
       summary: Update an existing user's particular details
       operationId: patchUser
       x-google-backend:
@@ -506,6 +533,28 @@ paths:
       responses:
         '200':
           description: Successfully updated a user's information
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    delete:
+      summary: Delete a user
+      operationId: deleteUser
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: user
+          type: string
+          required: true
+          description: Username of the user to be deleted
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted a user
           schema:
             type: string
       tags:
@@ -685,6 +734,28 @@ paths:
       responses:
         '200':
           description: Successfully updated an existing office information
+          schema:
+            type: string
+      tags:
+      - ninjavan-office-service
+
+    delete:
+      summary: Delete an office by id
+      operationId: deleteOffice
+      x-google-backend:
+        address: https://office-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: id of the office to be deleted
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted an office based on id
           schema:
             type: string
       tags:
