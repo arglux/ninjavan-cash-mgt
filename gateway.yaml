@@ -30,24 +30,50 @@ paths:
           schema:
             type: string
 
-  /transaction/{username}:
+  /transaction/{username}/{id}:
     get:
-      summary: Get list of all transactions belonging to this user
-      operationId: getTransactionsByUser
+      summary: Get a transaction by its id
+      operationId: getUserTransaction
       x-google-backend:
         address: https://transaction-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
       parameters:
       - name: username
         in: path
-        description: Username whose transactions belong to
+        description: Username who owns this transaction
+        required: true
+        type: string
+      - name: id
+        in: path
+        required: true
+        description: id of the transaction
+        type: string
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve a transaction belonging to this user by id
+          schema:
+            type: string
+
+  /transaction/{username}:
+    get:
+      summary: Get list of transactions belonging to this user
+      operationId: getUserTransactions
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+      - name: username
+        in: path
+        description: Username who owns this transaction
         required: true
         type: string
       security:
         - api_key: []
       responses:
         '200':
-          description: Successfully retrieve list of all transactions belonging to this user
+          description: Successfully retrieve list of transactions belonging to this user
           schema:
             type: string
 
@@ -94,6 +120,19 @@ paths:
       x-google-backend:
         address: https://office-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+      - name: country
+        in: query
+        description: Filter for country of the office
+        type: string
+      - name: type
+        in: query
+        description: Filter for type of the office
+        type: string
+      - name: businessUnit
+        in: query
+        description: Filter for business unit of the office
+        type: string
       security:
         - api_key: []
       responses:
