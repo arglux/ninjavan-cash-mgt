@@ -51,6 +51,31 @@ paths:
           schema:
             type: string
 
+  /transaction/{username}/{id}:
+    get:
+      summary: Get list a user transaction by id
+      operationId: getTransactionById
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+      - name: username
+        in: path
+        description: Username whose transactions belong to
+        required: true
+        type: string
+      - name: id
+        in: path
+        description: Id of user transaction
+        required: true
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve a user transactions by id
+          schema:
+            type: string
+
   /user:
     get:
       summary: Get list of all users
@@ -66,6 +91,27 @@ paths:
           schema:
             type: string
 
+  /user/{username}:
+    get:
+      summary: Get a user by username
+      operationId: getUserByUsername
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+      - name: username
+        in: path
+        description: Username of the user
+        required: true
+        type: string
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve the user with this username
+          schema:
+            type: string
+
   /office:
     get:
       summary: Get list of all offices
@@ -78,5 +124,26 @@ paths:
       responses:
         '200':
           description: Successfully retrieve list of all offices
+          schema:
+            type: string
+
+  /office/{id}:
+    get:
+      summary: Get office by id
+      operationId: getOfficeById
+      x-google-backend:
+        address: https://office-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+      - name: id
+        in: path
+        description: Id of the office
+        required: true
+        type: string
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve the office with this id
           schema:
             type: string
