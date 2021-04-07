@@ -56,7 +56,7 @@ paths:
           type: string
           required: true
           description: Currency of transaction.
-        - in: formaData
+        - in: formData
           name: length
           type: string
           required: true
