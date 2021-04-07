@@ -55,7 +55,12 @@ paths:
           name: currency
           type: string
           required: true
-          description: Currency of transaction
+          description: Currency of transaction.
+        - in: formaData
+          name: length
+          type: string
+          required: true
+          description: Number of receipt images.
         - in: formData
           name: expCategory
           type: string
