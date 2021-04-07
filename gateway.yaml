@@ -16,6 +16,15 @@ securityDefinitions:
 
 paths:
   /transaction:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsRequest
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+
     get:
       summary: Get list of all transactions
       operationId: getTransactions
