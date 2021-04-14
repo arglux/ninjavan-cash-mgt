@@ -391,7 +391,7 @@ paths:
         - application/x-www-form-urlencoded
       parameters:
         - in: formData
-          name: username
+          name: _userId
           type: string
           required: true
           description: Username of the user
@@ -421,7 +421,7 @@ paths:
           required: true
           description: Email of the user
         - in: formData
-          name: officeId
+          name: defaultOfficeId
           type: string
           required: true
           description: Default office to which user is attached to
@@ -431,7 +431,7 @@ paths:
           required: true
           description: Permissions the user is granted
         - in: formData
-          name: claimType
+          name: defaultClaimType
           type: string
           required: true
           description: Default claim type the user usually claims
@@ -441,7 +441,7 @@ paths:
           required: true
           description: Preferred language of the user
         - in: formData
-          name: history
+          name: _history
           type: string
           required: true
           description: History of user actions
