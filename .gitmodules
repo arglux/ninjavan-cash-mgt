@@ -10,3 +10,6 @@
 [submodule "office"]
 	path = office
 	url = https://github.com/arglux/ninjavan-office-service.git
+[submodule "policy"]
+	path = policy
+	url = https://github.com/arglux/ninjavan-policy-service.git
