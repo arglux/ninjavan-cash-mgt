@@ -1,0 +1,115 @@
+paths:
+  /locations:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsLocations
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-user-service
+
+    get:
+      summary: Get list of all locations
+      operationId: getLocations
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve list of all locations
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    post:
+      summary: Create a new location
+      operationId: postLocation
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created a location
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+  /locations/{locationId}:
+    get:
+      summary: Get a location
+      operationId: getLocation
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: locationId
+          type: string
+          required: true
+          description: Id of the location
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieved the location
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    delete:
+      summary: Delete a location
+      operationId: deleteLocation
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: locationId
+          type: string
+          required: true
+          description: Id of the location
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted a location
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    put:
+      summary: Update a location
+      operationId: putLocation
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: locationId
+          type: string
+          required: true
+          description: Id of the location
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated a location
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service

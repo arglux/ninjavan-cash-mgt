@@ -1,0 +1,120 @@
+paths:
+  /roles:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsRoles
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-user-service
+
+    get:
+      summary: Get list of all roles
+      operationId: getRoles
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve list of all roles
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    post:
+      summary: Create a new role
+      operationId: postRole
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created a role
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+  /roles/{roleId}:
+    get:
+      summary: Get a role
+      operationId: getRole
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: roleId
+          type: string
+          required: true
+          description: Id of the role
+        - in: query
+          name: userId
+          type: string
+          required: true
+          description: Id of the user of this role
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieved the role
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    delete:
+      summary: Delete a role
+      operationId: deleteRole
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: roleId
+          type: string
+          required: true
+          description: Id of the role
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted a role
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    put:
+      summary: Update a role
+      operationId: putRole
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: roleId
+          type: string
+          required: true
+          description: Id of the role
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated a role
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service

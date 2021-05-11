@@ -303,6 +303,81 @@ paths:
       summary: Update an image
       tags: [ninjavan-transaction-service]
       x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /locations:
+    get:
+      operationId: getLocations
+      responses:
+        '200':
+          description: Successfully retrieve list of all locations
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get list of all locations
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsLocations
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
+    post:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: postLocation
+      responses:
+        '200':
+          description: Successfully created a location
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Create a new location
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /locations/{locationId}:
+    delete:
+      operationId: deleteLocation
+      parameters:
+      - {description: Id of the location, in: path, name: locationId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully deleted a location
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Delete a location
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    get:
+      operationId: getLocation
+      parameters:
+      - {description: Id of the location, in: path, name: locationId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully retrieved the location
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get a location
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    put:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: putLocation
+      parameters:
+      - {description: Id of the location, in: path, name: locationId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully updated a location
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Update a location
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
   /policies:
     get:
       operationId: getPolicies
@@ -378,6 +453,80 @@ paths:
       summary: Update a policy
       tags: [ninjavan-policy-service]
       x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /roles:
+    get:
+      operationId: getRoles
+      responses:
+        '200':
+          description: Successfully retrieve list of all roles
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get list of all roles
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsRoles
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
+    post:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: postRole
+      responses:
+        '200':
+          description: Successfully created a role
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Create a new role
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /roles/{roleId}:
+    delete:
+      operationId: deleteRole
+      parameters:
+      - {description: Id of the role, in: path, name: roleId, required: true, type: string}
+      responses:
+        '200':
+          description: Successfully deleted a role
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Delete a role
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    get:
+      operationId: getRole
+      parameters:
+      - {description: Id of the role, in: path, name: roleId, required: true, type: string}
+      - {description: Id of the user of this role, in: query, name: userId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully retrieved the role
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get a role
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    put:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: putRole
+      parameters:
+      - {description: Id of the role, in: path, name: roleId, required: true, type: string}
+      responses:
+        '200':
+          description: Successfully updated a role
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Update a role
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
   /transactions:
     get:
       operationId: getTransactions
@@ -455,6 +604,78 @@ paths:
       summary: Update a transaction
       tags: [ninjavan-transaction-service]
       x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /users:
+    get:
+      operationId: getUsers
+      responses:
+        '200':
+          description: Successfully retrieve list of all users
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get list of all users
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsUsers
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
+    post:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: postUser
+      responses:
+        '200':
+          description: Successfully created a user
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Create a new user
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /users/{userId}:
+    delete:
+      operationId: deleteUser
+      parameters:
+      - {description: Id of the user, in: path, name: userId, required: true, type: string}
+      responses:
+        '200':
+          description: Successfully deleted a user
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Delete a user
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    get:
+      operationId: getUser
+      parameters:
+      - {description: Id of the user, in: path, name: userId, required: true, type: string}
+      responses:
+        '200':
+          description: Successfully retrieved the user
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get a user
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    put:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: putUser
+      parameters:
+      - {description: Id of the user, in: path, name: userId, required: true, type: string}
+      responses:
+        '200':
+          description: Successfully updated a user
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Update a user
+      tags: [ninjavan-user-service]
+      x-google-backend: {address: 'https://user-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
 produces: [application/json]
 schemes: [https]
 securityDefinitions:

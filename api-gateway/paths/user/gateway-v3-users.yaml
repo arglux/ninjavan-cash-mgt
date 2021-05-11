@@ -1,0 +1,115 @@
+paths:
+  /users:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsUsers
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-user-service
+
+    get:
+      summary: Get list of all users
+      operationId: getUsers
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve list of all users
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    post:
+      summary: Create a new user
+      operationId: postUser
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created a user
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+  /users/{userId}:
+    get:
+      summary: Get a user
+      operationId: getUser
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: userId
+          type: string
+          required: true
+          description: Id of the user
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieved the user
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    delete:
+      summary: Delete a user
+      operationId: deleteUser
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: userId
+          type: string
+          required: true
+          description: Id of the user
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted a user
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
+    put:
+      summary: Update a user
+      operationId: putUser
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: userId
+          type: string
+          required: true
+          description: Id of the user
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated a user
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
