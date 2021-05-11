@@ -1,0 +1,115 @@
+paths:
+  /approvedExpenses:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsApprovedExpenses
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-policy-service
+
+    get:
+      summary: Get list of all expense categories
+      operationId: getApprovedExpenses
+      x-google-backend:
+        address: https://policy-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve list of all approved expenses
+          schema:
+            type: string
+      tags:
+      - ninjavan-policy-service
+
+    post:
+      summary: Create a new approved expense
+      operationId: postApprovedExpense
+      x-google-backend:
+        address: https://policy-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created an approved expense
+          schema:
+            type: string
+      tags:
+      - ninjavan-policy-service
+
+  /approvedExpense/{approvedExpenseId}:
+    get:
+      summary: Get an approved expense
+      operationId: getApprovedExpense
+      x-google-backend:
+        address: https://policy-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: approvedExpenseId
+          type: string
+          required: true
+          description: Id of the approved expense
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieved the approved expense
+          schema:
+            type: string
+      tags:
+      - ninjavan-policy-service
+
+    delete:
+      summary: Delete an approved expense
+      operationId: deleteApprovedExpense
+      x-google-backend:
+        address: https://policy-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: approvedExpenseId
+          type: string
+          required: true
+          description: Id of the approved expense
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted an approved expense
+          schema:
+            type: string
+      tags:
+      - ninjavan-policy-service
+
+    put:
+      summary: Update an approved expense
+      operationId: putApprovedExpense
+      x-google-backend:
+        address: https://policy-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: approvedExpenseId
+          type: string
+          required: true
+          description: Id of the approved expense
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated an approved expense
+          schema:
+            type: string
+      tags:
+      - ninjavan-policy-service

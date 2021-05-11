@@ -1,0 +1,15 @@
+swagger: '2.0'
+info:
+  title: ninjavan-cash-mgt
+  description: Ninja Van Petty Cash Mgt API gateway
+  version: 3.0.0
+host: ninjavan-cash-mgt.apigateway.ninja-capstone.cloud.goog
+schemes:
+- https
+produces:
+- application/json
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: key
+    in: query
