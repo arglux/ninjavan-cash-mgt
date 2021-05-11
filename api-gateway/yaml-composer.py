@@ -41,5 +41,5 @@ if __name__ == "__main__":
 		'paths/user/gateway-v3-roles.yaml',
 		'paths/user/gateway-v3-users.yaml'
 	]
-	status, _ = compose("gateway-v3.3.yaml", base_file, path_files)
+	status, _ = compose("gateway-v3.4.yaml", base_file, path_files)
 	print(status)
