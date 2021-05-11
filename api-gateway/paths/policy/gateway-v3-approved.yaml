@@ -45,7 +45,7 @@ paths:
       tags:
       - ninjavan-policy-service
 
-  /approvedExpense/{approvedExpenseId}:
+  /approvedExpenses/{approvedExpenseId}:
     get:
       summary: Get an approved expense
       operationId: getApprovedExpense
