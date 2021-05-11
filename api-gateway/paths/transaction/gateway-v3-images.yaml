@@ -1,0 +1,119 @@
+paths:
+  /images:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsImages
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-transaction-service
+
+    get:
+      summary: Get list of all images
+      operationId: getImages
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve list of all images
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    post:
+      summary: Create a new image
+      operationId: postImage
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created an image
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+  /images/{imageId}:
+    get:
+      summary: Get an image
+      operationId: getImage
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: imageId
+          type: string
+          required: true
+          description: Id of the image
+        - in: query
+          name: transactionId
+          type: string
+          description: Id of the transaction of this image
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieved the image
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    delete:
+      summary: Delete an image
+      operationId: deleteImage
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: imageId
+          type: string
+          required: true
+          description: Id of the image
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted an image
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    put:
+      summary: Update an image
+      operationId: putImage
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: imageId
+          type: string
+          required: true
+          description: Id of the image
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated an image
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service

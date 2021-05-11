@@ -32,7 +32,11 @@ if __name__ == "__main__":
 	base_file = 'gateway-v3-base.yaml'
 	path_files = [
 		'paths/policy/gateway-v3-policies.yaml',
-		'paths/policy/gateway-v3-expenses.yaml'
+		'paths/policy/gateway-v3-expenses.yaml',
+		'paths/policy/gateway-v3-approved.yaml',
+		'paths/transaction/gateway-v3-transactions.yaml',
+		'paths/transaction/gateway-v3-histories.yaml',
+		'paths/transaction/gateway-v3-images.yaml'
 	]
-	status, _ = compose("gateway-v3.1.yaml", base_file, path_files)
+	status, _ = compose("gateway-v3.2.yaml", base_file, path_files)
 	print(status)

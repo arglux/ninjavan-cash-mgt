@@ -1,0 +1,119 @@
+paths:
+  /transactions:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsTransactions
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-transaction-service
+
+    get:
+      summary: Get list of all transactions
+      operationId: getTransactions
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve list of all transactions
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    post:
+      summary: Create a new transaction
+      operationId: postTransaction
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created a transaction
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+  /transactions/{transactionId}:
+    get:
+      summary: Get a transaction
+      operationId: getTransaction
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: transactionId
+          type: string
+          required: true
+          description: Id of the transaction
+        - in: query
+          name: submitterId
+          type: string
+          description: Id of the submitter who owns this transaction
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieved the transaction
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    delete:
+      summary: Delete a transaction
+      operationId: deleteTransaction
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: transactionId
+          type: string
+          required: true
+          description: Id of the transaction
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted a transaction
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    put:
+      summary: Update a transaction
+      operationId: putTransaction
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: transactionId
+          type: string
+          required: true
+          description: Id of the transaction
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated a transaction
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service

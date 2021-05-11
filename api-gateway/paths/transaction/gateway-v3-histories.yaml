@@ -1,0 +1,119 @@
+paths:
+  /histories:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsHistories
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-transaction-service
+
+    get:
+      summary: Get list of all histories
+      operationId: getHistories
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve list of all histories
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    post:
+      summary: Create a new history
+      operationId: postHistory
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully created a history
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+  /histories/{historyId}:
+    get:
+      summary: Get a history
+      operationId: getHistory
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: historyId
+          type: string
+          required: true
+          description: Id of the history
+        - in: query
+          name: transactionId
+          type: string
+          description: Id of the transaction of this history
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieved the history
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    delete:
+      summary: Delete a history
+      operationId: deleteHistory
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: path
+          name: historyId
+          type: string
+          required: true
+          description: Id of the history
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully deleted a history
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    put:
+      summary: Update a history
+      operationId: putHistory
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: historyId
+          type: string
+          required: true
+          description: Id of the history
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated a history
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service

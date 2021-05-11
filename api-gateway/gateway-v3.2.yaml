@@ -1,0 +1,462 @@
+host: ninjavan-cash-mgt.apigateway.ninja-capstone.cloud.goog
+info: {description: Ninja Van Petty Cash Mgt API gateway, title: ninjavan-cash-mgt,
+  version: 3.0.0}
+paths:
+  /approvedExpense/{approvedExpenseId}:
+    delete:
+      operationId: deleteApprovedExpense
+      parameters:
+      - {description: Id of the approved expense, in: path, name: approvedExpenseId,
+        required: true, type: string}
+      responses:
+        '200':
+          description: Successfully deleted an approved expense
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Delete an approved expense
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    get:
+      operationId: getApprovedExpense
+      parameters:
+      - {description: Id of the approved expense, in: path, name: approvedExpenseId,
+        required: true, type: string}
+      responses:
+        '200':
+          description: Successfully retrieved the approved expense
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get an approved expense
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    put:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: putApprovedExpense
+      parameters:
+      - {description: Id of the approved expense, in: path, name: approvedExpenseId,
+        required: true, type: string}
+      responses:
+        '200':
+          description: Successfully updated an approved expense
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Update an approved expense
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /approvedExpenses:
+    get:
+      operationId: getApprovedExpenses
+      responses:
+        '200':
+          description: Successfully retrieve list of all approved expenses
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get list of all expense categories
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsApprovedExpenses
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
+    post:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: postApprovedExpense
+      responses:
+        '200':
+          description: Successfully created an approved expense
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Create a new approved expense
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /expenseCategories:
+    get:
+      operationId: getExpenseCategories
+      responses:
+        '200':
+          description: Successfully retrieve list of all expense categories
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get list of all expense categories
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsExpenseCategories
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
+    post:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: postExpenseCategory
+      responses:
+        '200':
+          description: Successfully created an expense category
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Create a new expense category
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /expenseCategories/{expenseCategoryId}:
+    delete:
+      operationId: deleteExpenseCategory
+      parameters:
+      - {description: Id of the expense category, in: path, name: expenseCategoryId,
+        required: true, type: string}
+      responses:
+        '200':
+          description: Successfully deleted an expense category
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Delete an expense category
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    get:
+      operationId: getExpenseCategory
+      parameters:
+      - {description: Id of the expense category, in: path, name: expenseCategoryId,
+        required: true, type: string}
+      responses:
+        '200':
+          description: Successfully retrieved the expense category
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get an expenseCategory
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    put:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: putExpenseCategory
+      parameters:
+      - {description: Id of the expense category, in: path, name: expenseCategoryId,
+        required: true, type: string}
+      responses:
+        '200':
+          description: Successfully updated an expense category
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Update an expenseCategory
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /histories:
+    get:
+      operationId: getHistories
+      responses:
+        '200':
+          description: Successfully retrieve list of all histories
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get list of all histories
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsHistories
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
+    post:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: postHistory
+      responses:
+        '200':
+          description: Successfully created a history
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Create a new history
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /histories/{historyId}:
+    delete:
+      operationId: deleteHistory
+      parameters:
+      - {description: Id of the history, in: path, name: historyId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully deleted a history
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Delete a history
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    get:
+      operationId: getHistory
+      parameters:
+      - {description: Id of the history, in: path, name: historyId, required: true,
+        type: string}
+      - {description: Id of the transaction of this history, in: query, name: transactionId,
+        type: string}
+      responses:
+        '200':
+          description: Successfully retrieved the history
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get a history
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    put:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: putHistory
+      parameters:
+      - {description: Id of the history, in: path, name: historyId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully updated a history
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Update a history
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /images:
+    get:
+      operationId: getImages
+      responses:
+        '200':
+          description: Successfully retrieve list of all images
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get list of all images
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsImages
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
+    post:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: postImage
+      responses:
+        '200':
+          description: Successfully created an image
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Create a new image
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /images/{imageId}:
+    delete:
+      operationId: deleteImage
+      parameters:
+      - {description: Id of the image, in: path, name: imageId, required: true, type: string}
+      responses:
+        '200':
+          description: Successfully deleted an image
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Delete an image
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    get:
+      operationId: getImage
+      parameters:
+      - {description: Id of the image, in: path, name: imageId, required: true, type: string}
+      - {description: Id of the transaction of this image, in: query, name: transactionId,
+        type: string}
+      responses:
+        '200':
+          description: Successfully retrieved the image
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get an image
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    put:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: putImage
+      parameters:
+      - {description: Id of the image, in: path, name: imageId, required: true, type: string}
+      responses:
+        '200':
+          description: Successfully updated an image
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Update an image
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /policies:
+    get:
+      operationId: getPolicies
+      responses:
+        '200':
+          description: Successfully retrieve list of all policies
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get list of all policies
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsPolicies
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
+    post:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: postPolicy
+      responses:
+        '200':
+          description: Successfully created a policy
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Create a new policy
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /policies/{policyId}:
+    delete:
+      operationId: deletePolicy
+      parameters:
+      - {description: Id of the policy, in: path, name: policyId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully deleted a policy
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Delete a policy
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    get:
+      operationId: getPolicy
+      parameters:
+      - {description: Id of the policy, in: path, name: policyId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully retrieved the policy
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get a policy
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    put:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: putPolicy
+      parameters:
+      - {description: Id of the policy, in: path, name: policyId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully updated a policy
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Update a policy
+      tags: [ninjavan-policy-service]
+      x-google-backend: {address: 'https://policy-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /transactions:
+    get:
+      operationId: getTransactions
+      responses:
+        '200':
+          description: Successfully retrieve list of all transactions
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get list of all transactions
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsTransactions
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
+    post:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: postTransaction
+      responses:
+        '200':
+          description: Successfully created a transaction
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Create a new transaction
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+  /transactions/{transactionId}:
+    delete:
+      operationId: deleteTransaction
+      parameters:
+      - {description: Id of the transaction, in: path, name: transactionId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully deleted a transaction
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Delete a transaction
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    get:
+      operationId: getTransaction
+      parameters:
+      - {description: Id of the transaction, in: path, name: transactionId, required: true,
+        type: string}
+      - {description: Id of the submitter who owns this transaction, in: query, name: submitterId,
+        type: string}
+      responses:
+        '200':
+          description: Successfully retrieved the transaction
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Get a transaction
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    put:
+      consumes: [application/x-www-form-urlencoded]
+      operationId: putTransaction
+      parameters:
+      - {description: Id of the transaction, in: path, name: transactionId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: Successfully updated a transaction
+          schema: {type: string}
+      security:
+      - api_key: []
+      summary: Update a transaction
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+produces: [application/json]
+schemes: [https]
+securityDefinitions:
+  api_key: {in: query, name: key, type: apiKey}
+swagger: '2.0'
