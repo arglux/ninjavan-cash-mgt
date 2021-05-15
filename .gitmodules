@@ -1,15 +1,12 @@
 [submodule "user"]
 	path = user
-	url = https://github.com/heavensward-argentlux/mongodb-service-template.git
+	url = https://github.com/arglux/ninjavan-user-service.git
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/heavensward-argentlux/frontend-service-template.git
+	url = https://github.com/arglux/ninjavan-frontend-service.git
 [submodule "transaction"]
 	path = transaction
-	url = https://github.com/heavensward-argentlux/image-service-template.git
-[submodule "office"]
-	path = office
-	url = https://github.com/arglux/ninjavan-office-service.git
+	url = https://github.com/arglux/ninjavan-transaction-service.git
 [submodule "policy"]
 	path = policy
 	url = https://github.com/arglux/ninjavan-policy-service.git
