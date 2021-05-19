@@ -17,6 +17,19 @@ paths:
       x-google-backend:
         address: https://transaction-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: query
+          name: submitterId
+          type: string
+          description: Id of the submitter who owns this transaction
+        - in: query
+          name: locationId
+          type: string
+          description: Id of the location which has this transaction
+        - in: query
+          name: policyId
+          type: string
+          description: Id of the policy which has this transaction
       security:
         - api_key: []
       responses:
@@ -58,10 +71,6 @@ paths:
           type: string
           required: true
           description: Id of the transaction
-        - in: query
-          name: submitterId
-          type: string
-          description: Id of the submitter who owns this transaction
       security:
         - api_key: []
       responses:
@@ -95,7 +104,7 @@ paths:
       - ninjavan-transaction-service
 
     put:
-      summary: Update a transaction
+      summary: Resubmit a transaction
       operationId: putTransaction
       x-google-backend:
         address: https://transaction-6l56qfm2ha-as.a.run.app
@@ -112,7 +121,36 @@ paths:
         - api_key: []
       responses:
         '200':
-          description: Successfully updated a transaction
+          description: Successfully resubmitted a transaction
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
+    patch:
+      summary: Update transaction status (approve, reject, etc.)
+      operationId: patchTransaction
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: transactionId
+          type: string
+          required: true
+          description: Id of the transaction
+        - in: query
+          name: action
+          type: string
+          required: true
+          description: action to be done on this transaction
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully updated a transaction status
           schema:
             type: string
       tags:
