@@ -59,6 +59,20 @@ paths:
       - ninjavan-transaction-service
 
   /transactions/{transactionId}:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsTransaction
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      parameters:
+      - {description: Id of the transaction, in: path, name: transactionId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-transaction-service
+
     get:
       summary: Get a transaction
       operationId: getTransaction

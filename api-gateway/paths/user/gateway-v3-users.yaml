@@ -17,6 +17,12 @@ paths:
       x-google-backend:
         address: https://user-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: query
+          name: email
+          type: string
+          required: false
+          description: search by foreign key of email
       security:
         - api_key: []
       responses:
@@ -90,7 +96,7 @@ paths:
       tags:
       - ninjavan-user-service
 
-    put:
+    patch:
       summary: Update a user
       operationId: putUser
       x-google-backend:

@@ -17,6 +17,17 @@ paths:
       x-google-backend:
         address: https://user-6l56qfm2ha-as.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - in: query
+          name: userId
+          type: string
+          required: false
+          description: filter by user id
+        - in: query
+          name: policyId
+          type: string
+          required: false
+          description: filter by policy id
       security:
         - api_key: []
       responses:

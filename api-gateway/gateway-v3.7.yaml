@@ -604,6 +604,16 @@ paths:
       summary: Get a transaction
       tags: [ninjavan-transaction-service]
       x-google-backend: {address: 'https://transaction-6l56qfm2ha-as.a.run.app', path_translation: APPEND_PATH_TO_ADDRESS}
+    options:
+      operationId: corsTransaction
+      parameters:
+      - {description: Id of the transaction, in: path, name: transactionId, required: true,
+        type: string}
+      responses:
+        '200': {description: A successful response}
+      summary: Handles pre-flight cors request
+      tags: [ninjavan-transaction-service]
+      x-google-backend: {address: 'https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors'}
     patch:
       consumes: [application/x-www-form-urlencoded]
       operationId: patchTransaction
