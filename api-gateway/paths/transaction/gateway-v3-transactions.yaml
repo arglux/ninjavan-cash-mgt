@@ -1,4 +1,21 @@
 paths:
+  /transactions/auth:
+    get:
+      summary: Get authorization for transactions
+      operationId: authTransactions
+      x-google-backend:
+        address: https://transaction-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve auth for transactions
+          schema:
+            type: string
+      tags:
+      - ninjavan-transaction-service
+
   /transactions:
     options:
       summary: Handles pre-flight cors request

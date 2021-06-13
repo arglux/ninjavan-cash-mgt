@@ -1,4 +1,21 @@
 paths:
+  /users/auth:
+    get:
+      summary: Get authorization for users
+      operationId: authUsers
+      x-google-backend:
+        address: https://user-6l56qfm2ha-as.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve auth for users
+          schema:
+            type: string
+      tags:
+      - ninjavan-user-service
+
   /users:
     options:
       summary: Handles pre-flight cors request
