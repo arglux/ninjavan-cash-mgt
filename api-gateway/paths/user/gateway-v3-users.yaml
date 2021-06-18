@@ -1,5 +1,16 @@
 paths:
-  /users/auth:
+  /auth:
+    options:
+      summary: Handles pre-flight cors request for auth
+      operationId: corsAuth
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-user-service
+
     get:
       summary: Get authorization for users
       operationId: authUsers
@@ -69,6 +80,20 @@ paths:
       - ninjavan-user-service
 
   /users/{userId}:
+    options:
+      summary: Handles pre-flight cors request for user
+      operationId: corsUser
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      parameters:
+      - {description: Id of the user, in: path, name: userId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-user-service
+
     get:
       summary: Get a user
       operationId: getUser
