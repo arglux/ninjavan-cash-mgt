@@ -46,6 +46,23 @@ paths:
       - ninjavan-policy-service
 
   /approvedExpenses/{approvedExpenseId}:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsApprovedExpense
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      parameters:
+        - in: path
+          name: approvedExpenseId
+          type: string
+          required: true
+          description: Id of the approved expense
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-policy-service
+
     get:
       summary: Get an approved expense
       operationId: getApprovedExpense

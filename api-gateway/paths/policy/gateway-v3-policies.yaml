@@ -46,6 +46,23 @@ paths:
       - ninjavan-policy-service
 
   /policies/{policyId}:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsPolicy
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      parameters:
+        - in: path
+          name: policyId
+          type: string
+          required: true
+          description: Id of the policy
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-policy-service
+
     get:
       summary: Get a policy
       operationId: getPolicy

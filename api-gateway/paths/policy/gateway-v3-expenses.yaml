@@ -46,6 +46,23 @@ paths:
       - ninjavan-policy-service
 
   /expenseCategories/{expenseCategoryId}:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsExpenseCategory
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      parameters:
+        - in: path
+          name: expenseCategoryId
+          type: string
+          required: true
+          description: Id of the expense cat
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-policy-service
+
     get:
       summary: Get an expenseCategory
       operationId: getExpenseCategory
