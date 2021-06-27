@@ -57,6 +57,20 @@ paths:
       - ninjavan-user-service
 
   /roles/{roleId}:
+    options:
+      summary: Handles pre-flight cors request for user
+      operationId: corsRole
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      parameters:
+      - {description: Id of the role, in: path, name: roleId, required: true,
+        type: string}
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-user-service
+
     get:
       summary: Get a role
       operationId: getRole
