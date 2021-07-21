@@ -1,0 +1,27 @@
+paths:
+  /analytics:
+    options:
+      summary: Handles pre-flight cors request
+      operationId: corsAnalytics
+      x-google-backend:
+        address: https://asia-southeast2-ninja-capstone.cloudfunctions.net/cors
+      responses:
+        '200':
+          description: A successful response
+      tags:
+      - ninjavan-analytics-service
+
+    get:
+      summary: Get analytics data
+      operationId: getAnalytics
+      x-google-backend:
+        address: https://analytics-6l56qfm2ha-as.a.run.app/
+        path_translation: APPEND_PATH_TO_ADDRESS
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successfully retrieve list of analytics
+
+      tags:
+      - ninjavan-analytics-service
